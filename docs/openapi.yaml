@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: Mini-CRM API
+  version: 1.1.0
+  description: Müşteri, Ürün ve Sipariş Yönetim Sistemi API Dokümantasyonu
+
+tags:
+  - name: Customers
+    description: Müşteri yönetimi işlemleri
+  - name: Products
+    description: Ürün ve stok yönetimi işlemleri
+  - name: Orders
+    description: Sipariş yönetimi işlemleri
+  - name: Reports
+    description: İstatistik ve raporlama işlemleri
+
+paths:
+  /api/customers:
+    get:
+      summary: Tüm müşterileri listeler
+      tags: [Customers]
+      responses:
+        '200':
+          description: Başarılı
+    post:
+      summary: Yeni müşteri oluşturur
+      tags: [Customers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Oluşturuldu
+
+  /api/products:
+    get:
+      summary: Tüm ürünleri listeler
+      tags: [Products]
+      responses:
+        '200':
+          description: Başarılı
+    post:
+      summary: Yeni ürün ekler
+      tags: [Products]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Oluşturuldu
+
+  /api/orders:
+    get:
+      summary: Tüm siparişleri listeler
+      tags: [Orders]
+      parameters:
+        - name: status
+          in: query
+          schema: {type: string}
+        - name: customerId
+          in: query
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Başarılı
+    post:
+      summary: Yeni sipariş oluşturur (Çoklu ürün desteği)
+      tags: [Orders]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreate'
+      responses:
+        '201':
+          description: Oluşturuldu
+
+  /api/orders/{id}/status:
+    patch:
+      summary: Sipariş durumunu günceller
+      tags: [Orders]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: integer}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status: {type: string, enum: [PENDING, PREPARING, SHIPPED, DELIVERED, CANCELLED]}
+      responses:
+        '200':
+          description: Güncellendi
+
+  /api/reports/stats:
+    get:
+      summary: Genel sistem istatistiklerini getirir
+      tags: [Reports]
+      responses:
+        '200':
+          description: Başarılı
+
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        firstName: {type: string}
+        lastName: {type: string}
+        phone: {type: string}
+        email: {type: string}
+        address: {type: string}
+    
+    Product:
+      type: object
+      properties:
+        name: {type: string}
+        sku: {type: string}
+        price: {type: number}
+        stockQuantity: {type: integer}
+        trackStock: {type: boolean}
+        unit: {type: string}
+
+    OrderCreate:
+      type: object
+      properties:
+        customerId: {type: integer}
+        guestName: {type: string}
+        guestPhone: {type: string}
+        guestAddress: {type: string}
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId: {type: integer}
+              quantity: {type: integer}
