@@ -36,8 +36,8 @@ MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI
 ## 3️- Geliştirilmesi Gereken / Eksik Yönler
 
 - Test kapsamı sınırlıdır, sadece temel endpoint’ler test edilmiştir  
-- CI pipeline (GitHub Actions / GitLab CI) yapılandırması bulunmamaktadır  
-
+- CI pipeline (GitHub Actions / GitLab CI) yapılandırması bulunmamaktadır
+- Input validation ve güvenlik mekanizmaları geliştirilmelidir 
 ---
 
 ## 4️- Öneriler / Yol Haritası
