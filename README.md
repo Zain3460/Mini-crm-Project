@@ -58,3 +58,8 @@ Mimari kararlar, veritabanı şeması ve tasarım detayları için `docs/` klas�
 - [Mimari ve Tasarım Kararları](docs/readme.md)
 - [Veritabanı Şeması](docs/DB_SCHEMA.md)
 - [API Detayları](docs/API.md)
+
+**Code Review Yapan:**  
+- MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI (245112073)  
+👉 [Code Review Raporu](docs/REVIEW.md)
+
