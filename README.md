@@ -55,6 +55,6 @@ Uygulama çalışırken tarayıcınızdan aşağıdaki adrese giderek tüm API u
 
 ## 🛠 Teknik Detaylar
 Mimari kararlar, veritabanı şeması ve tasarım detayları için `docs/` klasöründeki dokümanları inceleyebilirsiniz:
-- [Mimari ve Tasarım Kararları](docs/ARCHITECTURE.md)
+- [Mimari ve Tasarım Kararları](docs/readme.md)
 - [Veritabanı Şeması](docs/DB_SCHEMA.md)
 - [API Detayları](docs/API.md)
