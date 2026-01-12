@@ -7,7 +7,7 @@ MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI
 
 ---
 
-## 1️ Projenin Genel Görünümü
+## Projenin Genel Görünümü
 
 - Müşteri, sipariş ve ürün yönetimi sağlamaktadır  
 - ORM olarak Sequelize kullanılmıştır (model ve migration yönetimi)  
@@ -18,7 +18,7 @@ MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI
 
 ---
 
-## 2️- güçlü Noktaları
+## güçlü Noktaları
 
 - Katmanlı mimari uygulanmıştır (routes → services → models)  
 - Telefon normalizasyonu ve mükerrer kayıt kontrolü yapılmaktadır  
@@ -33,14 +33,14 @@ MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI
 
 ---
 
-## 3️- Geliştirilmesi Gereken / Eksik Yönler
+## Geliştirilmesi Gereken / Eksik Yönler
 
 - Test kapsamı sınırlıdır, sadece temel endpoint’ler test edilmiştir  
 - CI pipeline (GitHub Actions / GitLab CI) yapılandırması bulunmamaktadır
 - Input validation ve güvenlik mekanizmaları geliştirilmelidir 
 ---
 
-## 4️- Öneriler / Yol Haritası
+## Öneriler / Yol Haritası
 
 - express-validator ile schema tabanlı input validation uygulanmalı  
 - CI/CD için GitHub Actions üzerinde lint, test ve build adımları tanımlanmalı  
@@ -56,6 +56,45 @@ Bazı alanlarda (test kapsamı, CI/CD ve güvenlik) geliştirme yapılabilir.
 Bu eksikler giderildiğinde proje daha düzenli ve kullanışlı hale gelecektir.
 
 ---------------------------------------------------------------------------------------
+
+
+## Code Review
+
+Hazırlayan: Burak ÜNAL Öğr no: 245172017
+
+GÜÇLÜ YÖNLER
+1. Modüler klasör yapısı (src, tests, docs, migrations)
+2. README dosyasının bulunması
+3. Migration kullanımı
+4. Test klasörü oluşturulmuş olması
+5. API dokümantasyonu için altyapı bulunması
+
+ZAYIF YÖNLER
+- README detay seviyesi yetersiz
+- API endpoint örnekleri eksik
+- Test kapsamı düşük
+- Merkezi hata yönetimi eksik
+- Veri doğrulama (validation) eksik
+- Kimlik doğrulama (Auth) bulunmuyor
+
+EKSİKLER
+- .env.example dosyası
+- Request/Response örnekleri
+- Otomatik test çalıştıran CI yapılandırması
+- Güvenlik önlemleri (JWT, role-based access)
+
+İYİLEŞTİRME ÖNERİLERİ
+- Joi veya Zod ile validation eklenmeli
+- JWT tabanlı authentication eklenmeli
+- GitHub Actions ile test + lint pipeline kurulmalı
+- Error handling standardize edilmeli
+- ESLint ve Prettier kullanılmalı
+
+GENEL DEĞERLENDİRME
+Bu proje eğitim amaçlı güçlü bir başlangıçtır.
+Eksikler tamamlandığında gerçek hayatta kullanılabilir bir CRM API haline gelebilir.
+
+
 
 
 ## Güncelleme
