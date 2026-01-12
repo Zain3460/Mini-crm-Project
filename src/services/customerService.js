@@ -38,11 +38,26 @@ function normalizeEmail(input) {
   return ok ? s : null;
 }
 
-async function listCustomers() {
-  return Customer.findAll({
-    limit: 50, // TODO: pagination eklenebilir
+// Moha: Müşteri listesini sayfalama ve arama ile döndürür.
+async function listCustomers({ page = 1, pageSize = 20, search = '' } = {}) {
+  const offset = (page - 1) * pageSize;
+  const where = {};
+  if (search) {
+    const like = { [Op.iLike]: `%${search}%` };
+    where[Op.or] = [
+      { firstName: like },
+      { lastName: like },
+      { email: like },
+      { phone: like }
+    ];
+  }
+  const { rows, count } = await Customer.findAndCountAll({
+    where,
+    limit: pageSize,
+    offset,
     order: [['id', 'ASC']]
   });
+  return { data: rows, total: count, page, pageSize };
 }
 
 async function getCustomerById(id) {

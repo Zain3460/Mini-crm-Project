@@ -10,13 +10,17 @@ function normalizeStatus(s) {
   return up;
 }
 
-async function listOrders({ status, customerId } = {}) {
+// Moha: Sipariş listesini sayfalama ve arama ile döndürür.
+async function listOrders({ status, customerId, page = 1, pageSize = 20 } = {}) {
   const where = {};
   if (status) where.status = normalizeStatus(status);
   if (customerId) where.customerId = Number(customerId);
 
-  return Order.findAll({
+  const offset = (page - 1) * pageSize;
+  const { rows, count } = await Order.findAndCountAll({
     where,
+    limit: pageSize,
+    offset,
     order: [['id', 'DESC']],
     include: [
       {
@@ -32,6 +36,7 @@ async function listOrders({ status, customerId } = {}) {
       }
     ]
   });
+  return { data: rows, total: count, page, pageSize };
 }
 
 async function getOrderById(id) {
@@ -61,7 +66,7 @@ async function createOrder(payload) {
     status: normalizeStatus(payload.status) || 'PENDING',
     totalAmount: payload.totalAmount ?? 0
   };
-  
+
   const items = payload.items || [];
   // Geriye dönük uyumluluk için tekil productId/quantity desteği
   if (payload.productId) {

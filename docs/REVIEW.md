@@ -61,3 +61,8 @@ Bu eksikler giderildiğinde proje daha düzenli ve kullanışlı hale gelecektir
 ## Güncelleme
 
 Github action ve dosyaları eklenmiştir. Kapsamlı testler yapılmıştır.  -Salih Kızılkaya
+
+- Moha: Müşteri listesi sayfalama ve arama desteği eklendi.
+- Moha: Sipariş listesi sayfalama ve arama desteği eklendi.
+- Moha: Siparişlerde adres kontrolü isteğe bağlı hâle getirildi (yorum satırı).
+- Moha: Telefon ve e‑mail normalizasyonu, duplicate kontrolü iyileştirildi.

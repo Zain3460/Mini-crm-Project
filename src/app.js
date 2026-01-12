@@ -56,7 +56,8 @@ app.use('/api/reports', reportsRouter);
 app.use('/api/products', productsRouter);
 
 // error handler (en sonda)
-app.use((err, req, res, next) => {
+// Moha: 'next' parametresi artık kullanılmadığı için kaldırıldı.
+app.use((err, req, res) => {
   console.error(err);
   logger.error('Unhandled error', { message: err.message, stack: err.stack, traceId: req.traceId });
 

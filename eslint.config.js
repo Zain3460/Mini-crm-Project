@@ -28,7 +28,8 @@ module.exports = [
       },
     },
     rules: {
-      "no-unused-vars": "warn",
+      // Moha: '_' ile başlayan parametreler kullanılmasa bile uyarı vermez (Express middleware imzaları için).
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
       "no-console": "off",
       ...jest.configs.recommended.rules,
     },
