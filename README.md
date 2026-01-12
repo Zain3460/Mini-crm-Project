@@ -60,6 +60,7 @@ Mimari kararlar, veritabanı şeması ve tasarım detayları için `docs/` klas�
 - [API Detayları](docs/API.md)
 
 **Code Review Yapan:**  
-- MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI (245112073)  
+- MOHAMMED ABDULRAHMAN ABDO ABDULLAH AL-HAMIDI (245112073)
+- Burak Ünal (245172017)
 👉 [Code Review Raporu](docs/REVIEW.md)
 
