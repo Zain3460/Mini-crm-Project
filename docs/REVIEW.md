@@ -57,6 +57,47 @@ Bu eksikler giderildiğinde proje daha düzenli ve kullanışlı hale gelecektir
 
 ---------------------------------------------------------------------------------------
 
+## Code Review
+Hazırlayan : Burak ÜNAL öğr No:245172017
+
+
+PROJE ÖZETİ
+Bu proje Node.js tabanlı, müşteri ve sipariş yönetimi yapan bir Mini CRM uygulamasıdır.
+REST API mimarisi kullanılmıştır.
+
+GÜÇLÜ YÖNLER
+1. Modüler klasör yapısı (src, tests, docs, migrations)
+2. README dosyasının bulunması
+3. Migration kullanımı
+4. Test klasörü oluşturulmuş olması
+5. API dokümantasyonu için altyapı bulunması
+
+ZAYIF YÖNLER
+1. README detay seviyesi yetersiz
+2. API endpoint örnekleri eksik
+3. Test kapsamı düşük
+4. Merkezi hata yönetimi eksik
+5. Veri doğrulama (validation) eksik
+6. Kimlik doğrulama (Auth) bulunmuyor
+
+EKSİKLER
+- .env.example dosyası
+- Request/Response örnekleri
+- Otomatik test çalıştıran CI yapılandırması
+- Güvenlik önlemleri (JWT, role-based access)
+
+İYİLEŞTİRME ÖNERİLERİ
+- Joi veya Zod ile validation eklenmeli
+- JWT tabanlı authentication eklenmeli
+- GitHub Actions ile test + lint pipeline kurulmalı
+- Error handling standardize edilmeli
+- ESLint ve Prettier kullanılmalı
+
+GENEL DEĞERLENDİRME
+Bu proje eğitim amaçlı güçlü bir başlangıçtır.
+Eksikler tamamlandığında gerçek hayatta kullanılabilir bir CRM API haline gelebilir.
+
+
 
 ## Güncelleme
 
