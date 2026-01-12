@@ -56,3 +56,8 @@ Bazı alanlarda (test kapsamı, CI/CD ve güvenlik) geliştirme yapılabilir.
 Bu eksikler giderildiğinde proje daha düzenli ve kullanışlı hale gelecektir.
 
 ---------------------------------------------------------------------------------------
+
+
+## Güncelleme
+
+Github action ve dosyaları eklenmiştir. Kapsamlı testler yapılmıştır.  -Salih Kızılkaya
